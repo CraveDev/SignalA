@@ -58,7 +58,8 @@ public class HubProxy implements IHubProxy
 			@Override
 			public void OnSent(CharSequence messageSent)
 			{
-				HubProxy.this.mConnection.OnLog(LogLevel.Debug, "Invoke of %s send to %s", method, HubProxy.this.mHubName);
+				if (HubProxy.this.mConnection != null)
+					HubProxy.this.mConnection.OnLog(LogLevel.Debug, "Invoke of %s send to %s", method, HubProxy.this.mHubName);
 			}
 
 			@Override
